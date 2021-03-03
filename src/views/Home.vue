@@ -11,7 +11,7 @@
             <div class="bg-light mb-3" style="width: 93%; background: #fff !important">
             <div class="row g-0">
               <div class="col-md-2">
-                <img :src="`http://localhost:3000/images/${items.image}`" class="m-4" style="width: 60px;">
+                <img :src="`${setURL}/images/${items.image}`" class="m-4" style="width: 60px;">
               </div>
               <div class="col-md-10">
                 <div class="card-body" style="margin-left: 20px;">
