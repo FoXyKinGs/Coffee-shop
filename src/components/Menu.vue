@@ -7,7 +7,7 @@
             </form>
           <div class="row mt-5">
             <div id="target" class="card col-lg-4 col-md-4 col-sm-6 col-xs-12" v-for="(element, index) in getResultProduct" :key="index">
-              <img :src="`http://localhost:3000/images/${element.image}`" class="card-img-top" style="width: 100% !important; height: 200px;" v-on:click="addToCart(element)">
+              <img :src="`${setURL}/images/${element.image}`" class="card-img-top" style="width: 100% !important; height: 200px;" v-on:click="addToCart(element)">
               <router-link :to="'/detail/' + element.id" class="btn btn-light border-0">Detail</router-link>
                 <div class="card-body">
                   <h6 class="card-title">{{element.product_name}}</h6>
@@ -35,7 +35,8 @@ export default {
         searching: '',
         page: 1
       },
-      dataCart: []
+      dataCart: [],
+      setURL: process.env.VUE_APP_BACKEND
     }
   },
   computed: {
