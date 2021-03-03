@@ -9,9 +9,8 @@ import moduleCategory from './modules/category'
 Vue.use(Vuex)
 
 const store = new Vuex.Store({
-  state () {
-    return {
-    }
+  state: {
+    setURL: process.env.VUE_APP_BACKEND
   },
   getters: {
   },

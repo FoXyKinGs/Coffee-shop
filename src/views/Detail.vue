@@ -6,7 +6,7 @@
                 <div class="card mb-3" style="width: 100%;" v-for="(element, index) in getResultDetailProduct" :key="index">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img :src="`http://localhost:3000/images/${element.image}`" alt="..." style="width: 100% !important; height: 100%; padding: 25px">
+                        <img :src="`${setURL}/images/${element.image}`" alt="..." style="width: 100% !important; height: 100%; padding: 25px">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -61,7 +61,8 @@ export default {
         product_name: '',
         image: '',
         price: ''
-      }
+      },
+      setURL: process.env.VUE_APP_BACKEND
     }
   },
   computed: {
@@ -86,8 +87,11 @@ export default {
       this.updateProduct({
         id: this.$route.params.id,
         data: fd
+      }).then((response) => {
+        this.getDetail(this.$route.params.id)
+      }).catch((err) => {
+        alert(err)
       })
-      this.getDetail(this.$route.params.id)
     },
     deleteP (value) {
       this.deleteProduct(value)

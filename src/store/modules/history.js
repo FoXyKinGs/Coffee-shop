@@ -18,8 +18,7 @@ const moduleHistory = {
   },
   actions: {
     getHistory (context) {
-      axios.get('http://localhost:3000/history', { headers: { token: context.rootState.auth.token } }).then((response) => {
-        console.log(response.data.data)
+      axios.get(`${context.rootState.setURL}/history`, { headers: { token: context.rootState.auth.token } }).then((response) => {
         context.commit('setListHistory', response.data.data)
       }).catch((err) => {
         console.log(err)
@@ -27,7 +26,7 @@ const moduleHistory = {
     },
     inputHistory (context, data) {
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3000/history', data, { headers: { token: context.rootState.auth.token } }).then((response) => {
+        axios.post(`${context.rootState.setURL}/history`, data, { headers: { token: context.rootState.auth.token } }).then((response) => {
           resolve(response)
         }).catch((err) => {
           reject(err)

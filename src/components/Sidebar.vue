@@ -75,7 +75,8 @@ export default {
     ...mapActions({
       actionLogout: 'auth/logout',
       getAllHistory: 'category/getAllCategory',
-      sendProduct: 'product/insertProduct'
+      sendProduct: 'product/insertProduct',
+      setNewProduct: 'product/getAllProductDB'
     }),
     file (data) {
       this.addMenu.image = data.target.files[0]
@@ -86,9 +87,13 @@ export default {
       fd.append('product_name', this.addMenu.product_name)
       fd.append('image', this.addMenu.image)
       fd.append('price', this.addMenu.price)
-      this.sendProduct(fd)
-      alert('data added')
-      this.$bvModal.hide('modal-product')
+      this.sendProduct(fd).then((response) => {
+        alert('data added')
+        this.setNewProduct()
+        this.$bvModal.hide('modal-product')
+      }).catch((err) => {
+        alert(err)
+      })
     },
     onLogout () {
       this.actionLogout().then((response) => {

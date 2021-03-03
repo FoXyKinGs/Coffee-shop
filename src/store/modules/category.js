@@ -13,7 +13,7 @@ const moduleCategory = {
   },
   actions: {
     getAllCategory (context, data) {
-      axios.get('http://localhost:3000/category', { headers: { token: context.rootState.auth.token } }).then((response) => {
+      axios.get(`${context.rootState.setURL}/category`, { headers: { token: context.rootState.auth.token } }).then((response) => {
         context.commit('setDataCategory', response.data.data)
       }).catch((err) => {
         console.log(err)
