@@ -54,5 +54,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Responsive
 ![Responsive](https://user-images.githubusercontent.com/61764220/109763435-a68f2d00-7c24-11eb-8df0-da1b3f256450.png)
 
+# Demo
+[demo](http://54.226.145.72:5008)
+
 # Backend
 [Backend](https://github.com/FoXyKinGs/Task_Week_4)
